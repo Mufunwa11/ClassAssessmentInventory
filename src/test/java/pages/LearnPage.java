@@ -59,6 +59,12 @@ public class LearnPage {
     @FindBy(xpath = "//button[normalize-space()='Confirm Purchase']")
     WebElement confirmPurchaseButton;
 
+    @FindBy(xpath = "//button[normalize-space()='View Invoice']")
+    WebElement viewInvoiceButton;
+
+    @FindBy(xpath = "//button[starts-with(@id, 'view-invoice-')]")
+    WebElement finalInvoiceButton;
+
     public LearnPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -136,4 +142,21 @@ public class LearnPage {
         confirmPurchaseButton.click();
     }
 
+    public void clickViewInvoiceButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.elementToBeClickable(viewInvoiceButton));
+        viewInvoiceButton.click();
+    }
+
+    public void verifyInvoiceDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(finalInvoiceButton));
+        Assert.assertTrue(finalInvoiceButton.isDisplayed(), "Final invoice document view button is not displayed.");
+    }
+
+    public void clickFinalInvoiceButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.elementToBeClickable(finalInvoiceButton));
+        finalInvoiceButton.click();
+    }
 }

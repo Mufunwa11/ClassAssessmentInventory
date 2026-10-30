@@ -28,6 +28,9 @@ public class LoginTests extends Base {
         learnPage.enterDiscountCode("SAVE10");
         learnPage.clickApplyDiscountButton();
         learnPage.clickConfirmPurchaseButton();
+        learnPage.clickViewInvoiceButton();
+        learnPage.verifyInvoiceDisplayed();
+        learnPage.clickFinalInvoiceButton();
 //        takeScreenshots.takeSnapShot(driver, "AfterLogin");
 //        landingPage.clickMenuButton();
 //        landingPage.clickLogoutButton();
@@ -41,7 +44,7 @@ public class LoginTests extends Base {
 //        loginPage.enterUsername("playtest@gmail.com");
 //        loginPage.enterPassword("12345");
 //        loginPage.clickLoginSubmitButton();
-////        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
+//        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
 //
 //    }
 //
@@ -54,3 +57,4 @@ public class LoginTests extends Base {
 
 
 }
+
