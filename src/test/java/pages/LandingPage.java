@@ -1,18 +1,24 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class LandingPage {
+
     WebDriver driver;
 
     @FindBy(xpath = "//span[normalize-space()='My Learning']")
     WebElement myLearningTab;
+
+    @FindBy(xpath = "//span[normalize-space()='Menu']")
+    WebElement menuTab;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -21,7 +27,10 @@ public class LandingPage {
     public void verifyLoginSuccess() {
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(myLearningTab));
         myLearningTab.isDisplayed();
-
+    }
+    public void clickMenuButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(menuTab));
+        menuTab.click();
     }
 
 }

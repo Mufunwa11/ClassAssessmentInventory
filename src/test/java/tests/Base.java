@@ -8,7 +8,7 @@ import pages.LearnPage;
 import pages.LoginPage;
 import utils.BrowserFactory;
 import utils.ReadData;
-//import utils.TakeScreenshots;
+import utils.TakeScreenshots;
 
 public class Base {
     BrowserFactory browserFactory = new BrowserFactory();
@@ -19,7 +19,7 @@ public class Base {
     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     public LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     public LearnPage learnPage = PageFactory.initElements(driver, LearnPage.class);
-    //    public TakeScreenshots takeScreenshots = new TakeScreenshots();
+    public TakeScreenshots takeScreenshots = new TakeScreenshots();
 
     ReadData readData;
 
