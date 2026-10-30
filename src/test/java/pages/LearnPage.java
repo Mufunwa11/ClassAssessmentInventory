@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -20,6 +21,13 @@ public class LearnPage {
 
     @FindBy(xpath = "//span[normalize-space()='Web Automation Advance']")
     WebElement webAutomationAdvanceTab;
+
+    @FindBy(id = "deviceType")
+    WebElement deviceTypeDropdown;
+
+    @FindBy(id = "brand")
+    WebElement brandDropdown;
+
 
     public LearnPage(WebDriver driver) {
         this.driver = driver;
@@ -38,6 +46,16 @@ public class LearnPage {
     public void clickWebAutomationAdvanceButton(){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(webAutomationAdvanceTab));
         webAutomationAdvanceTab.click();
+    }
+
+    public void selectDeviceTypePhone() {
+        Select select = new Select(deviceTypeDropdown);
+        select.selectByVisibleText("Phone");
+    }
+
+    public void selectBrand() {
+        Select select = new Select(brandDropdown);
+        select.selectByVisibleText("Apple");
     }
 
 }

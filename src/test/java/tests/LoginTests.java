@@ -16,6 +16,8 @@ public class LoginTests extends Base {
         learnPage.clickLearnButton();
         learnPage.clickLearningMaterialsButton();
         learnPage.clickWebAutomationAdvanceButton();
+        learnPage.selectDeviceTypePhone();
+        learnPage.selectBrand();
 //        takeScreenshots.takeSnapShot(driver, "AfterLogin");
 //        landingPage.clickMenuButton();
 //        landingPage.clickLogoutButton();
