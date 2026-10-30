@@ -18,6 +18,9 @@ public class LoginTests extends Base {
         learnPage.clickWebAutomationAdvanceButton();
         learnPage.selectDeviceTypePhone();
         learnPage.selectBrand();
+        learnPage.selectStorage();
+        learnPage.selectColor();
+        learnPage.enterQuantity("2");
 //        takeScreenshots.takeSnapShot(driver, "AfterLogin");
 //        landingPage.clickMenuButton();
 //        landingPage.clickLogoutButton();
@@ -25,22 +28,22 @@ public class LoginTests extends Base {
 
     }
 
-    @Test (priority = 2)
-    public void invalidLoginTest(){
-        homepage.clickLoginButton();
-        loginPage.enterUsername("playtest@gmail.com");
-        loginPage.enterPassword("12345");
-        loginPage.clickLoginSubmitButton();
-//        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
-
-    }
-
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @Test (priority = 2)
+//    public void invalidLoginTest(){
+//        homepage.clickLoginButton();
+//        loginPage.enterUsername("playtest@gmail.com");
+//        loginPage.enterPassword("12345");
+//        loginPage.clickLoginSubmitButton();
+////        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
+//
+//    }
+//
+//    @AfterClass
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 
 
 }

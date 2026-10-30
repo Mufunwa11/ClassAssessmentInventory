@@ -28,6 +28,15 @@ public class LearnPage {
     @FindBy(id = "brand")
     WebElement brandDropdown;
 
+    @FindBy(xpath = "//span[normalize-space()='128GB']")
+    WebElement storageOption;
+
+    @FindBy(id = "color")
+    WebElement colorSelection;
+
+    @FindBy(id = "quantity")
+    WebElement quantityInput;
+
 
     public LearnPage(WebDriver driver) {
         this.driver = driver;
@@ -56,6 +65,20 @@ public class LearnPage {
     public void selectBrand() {
         Select select = new Select(brandDropdown);
         select.selectByVisibleText("Apple");
+    }
+
+    public void selectStorage() {
+        storageOption.click();
+    }
+
+    public void selectColor() {
+        Select select = new Select(colorSelection);
+        select.selectByVisibleText("Blue");
+    }
+
+    public void enterQuantity(String quantity) {
+        quantityInput.clear(); // Clears out any existing number (like "0")
+        quantityInput.sendKeys(quantity); // Types your desired quantity
     }
 
 }
