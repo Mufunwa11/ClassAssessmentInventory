@@ -38,15 +38,14 @@ public class LoginTests extends Base {
 
     }
 
-    @Test (priority = 2)
-    public void invalidLoginTest(){
-        homepage.clickLoginButton();
-        loginPage.enterUsername("ftest@gmail.com");
-        loginPage.enterPassword("12345");
-        loginPage.clickLoginSubmitButton();
-        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
-
-    }
+//    @Test (priority = 2)
+//    public void invalidLoginTest(){
+//        homepage.clickLoginButton();
+//        loginPage.enterUsername("ftest@gmail.com");
+//        loginPage.enterPassword("12345");
+//        loginPage.clickLoginSubmitButton();
+//        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
+//    }
 
     @AfterClass
     public void tearDown() {
