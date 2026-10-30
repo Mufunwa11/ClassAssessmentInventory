@@ -3,15 +3,16 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
 public class LearnPage {
     WebDriver driver;
-
 
     @FindBy(xpath = "//span[normalize-space()='Learn']")
     WebElement learnTab;
@@ -43,9 +44,24 @@ public class LearnPage {
     @FindBy(xpath = "//button[normalize-space()='Next']")
     WebElement nextButton;
 
+    @FindBy(id = "shipping-option-express")
+    WebElement shippingMethod;
+
+    @FindBy(id = "warranty-option-1yr")
+    WebElement warrantyOption;
+
+    @FindBy(id = "discount-code")
+    WebElement discountCodeField;
+
+    @FindBy(xpath = "//button[normalize-space()='Apply']")
+    WebElement applyDiscountButton;
+
+    @FindBy(xpath = "//button[normalize-space()='Confirm Purchase']")
+    WebElement confirmPurchaseButton;
 
     public LearnPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void clickLearnButton(){
@@ -83,8 +99,8 @@ public class LearnPage {
     }
 
     public void enterQuantity(String quantity) {
-        quantityInput.clear(); // Clears out any existing number (like "0")
-        quantityInput.sendKeys(quantity); // Types your desired quantity
+        quantityInput.clear();
+        quantityInput.sendKeys(quantity);
     }
 
     public void enterAddress(String address) {
@@ -95,6 +111,29 @@ public class LearnPage {
     public void clickNextButton(){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(nextButton));
         nextButton.click();
+    }
+
+    public void selectShippingMethod() {
+        shippingMethod.click();
+    }
+
+    public void selectWarrantyOption() {
+        warrantyOption.click();
+    }
+
+    public void enterDiscountCode(String discountCode) {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(discountCodeField));
+        discountCodeField.sendKeys(discountCode);
+    }
+
+    public void clickApplyDiscountButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(applyDiscountButton));
+        applyDiscountButton.click();
+    }
+
+    public void clickConfirmPurchaseButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(confirmPurchaseButton));
+        confirmPurchaseButton.click();
     }
 
 }

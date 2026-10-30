@@ -23,6 +23,11 @@ public class LoginTests extends Base {
         learnPage.enterQuantity("2");
         learnPage.enterAddress("123 Test Street");
         learnPage.clickNextButton();
+        learnPage.selectShippingMethod();
+        learnPage.selectWarrantyOption();
+        learnPage.enterDiscountCode("SAVE10");
+        learnPage.clickApplyDiscountButton();
+        learnPage.clickConfirmPurchaseButton();
 //        takeScreenshots.takeSnapShot(driver, "AfterLogin");
 //        landingPage.clickMenuButton();
 //        landingPage.clickLogoutButton();
