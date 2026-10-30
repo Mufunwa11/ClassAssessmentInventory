@@ -21,6 +21,8 @@ public class LoginTests extends Base {
         learnPage.selectStorage();
         learnPage.selectColor();
         learnPage.enterQuantity("2");
+        learnPage.enterAddress("123 Test Street");
+        learnPage.clickNextButton();
 //        takeScreenshots.takeSnapShot(driver, "AfterLogin");
 //        landingPage.clickMenuButton();
 //        landingPage.clickLogoutButton();

@@ -37,6 +37,12 @@ public class LearnPage {
     @FindBy(id = "quantity")
     WebElement quantityInput;
 
+    @FindBy(id = "address")
+    WebElement addressField;
+
+    @FindBy(xpath = "//button[normalize-space()='Next']")
+    WebElement nextButton;
+
 
     public LearnPage(WebDriver driver) {
         this.driver = driver;
@@ -79,6 +85,16 @@ public class LearnPage {
     public void enterQuantity(String quantity) {
         quantityInput.clear(); // Clears out any existing number (like "0")
         quantityInput.sendKeys(quantity); // Types your desired quantity
+    }
+
+    public void enterAddress(String address) {
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(addressField));
+        addressField.sendKeys(address);
+    }
+
+    public void clickNextButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(nextButton));
+        nextButton.click();
     }
 
 }
